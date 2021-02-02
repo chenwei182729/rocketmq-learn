@@ -33,6 +33,7 @@ public class Producer {
     public static void main(String[] args) throws UnsupportedEncodingException {
         try {
             MQProducer producer = new DefaultMQProducer("please_rename_unique_group_name");
+            ((DefaultMQProducer)producer).setNamesrvAddr("192.168.192.180:9876");
             producer.start();
 
             String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
