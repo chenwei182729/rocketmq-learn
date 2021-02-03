@@ -117,7 +117,7 @@ services:
       - namesrv-node2
       - rocketmq-broker-node1-master
   rocketmq-console: 
-    build: ./console
+    build: console
     container_name: rocketmq-console
     restart: always
     ports: 

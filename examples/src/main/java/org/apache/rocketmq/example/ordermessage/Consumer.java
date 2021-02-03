@@ -18,6 +18,7 @@ package org.apache.rocketmq.example.ordermessage;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeOrderlyStatus;
@@ -31,10 +32,10 @@ public class Consumer {
     public static void main(String[] args) throws MQClientException {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name_3");
 
-        consumer.setNamesrvAddr("192.168.192.180:9876");
+        consumer.setNamesrvAddr("rocketmq-ns1:9876;rocketmq-ns2:9876;rocketmq-ns3:9876");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 
-        consumer.subscribe("TopicTest", "TagA || TagC || TagD");
+        consumer.subscribe("TopicTestjjj", "TagA || TagB || TagC || TagD || TagE");
 
         consumer.registerMessageListener(new MessageListenerOrderly() {
             AtomicLong consumeTimes = new AtomicLong(0);

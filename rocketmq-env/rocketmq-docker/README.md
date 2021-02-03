@@ -33,9 +33,9 @@ cd docker-rocketmq
 cd rmq
 
 
-chmod +x  start.sh
+chmod +x  start.md
 
-./start.sh
+./start.md
 
 ```
 
