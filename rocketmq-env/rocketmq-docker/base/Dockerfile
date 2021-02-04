@@ -60,7 +60,7 @@ RUN set -eux; \
 	rm -rf rocketmq.zip rocketmq.zip.asc KEYS
 
 # add scripts
-COPY scripts/ ${ROCKETMQ_HOME}/bin/
+COPY scripts ${ROCKETMQ_HOME}/bin/
 
 RUN mkdir -p /home/rocketmq/logs \
     && mkdir -p /home/rocketmq/store \

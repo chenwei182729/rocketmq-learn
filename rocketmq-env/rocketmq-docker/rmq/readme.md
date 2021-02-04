@@ -6,9 +6,9 @@ docker-compose
 
 进入 本目录下,执行如下命令
 ```bash
-chmod +x  start.sh
+chmod +x  start.md
 
-./start.sh
+./start.md
 ```
 
 清除 已创建的 docker

@@ -19,11 +19,15 @@ package org.apache.rocketmq.example.simple;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
 import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer;
 import org.apache.rocketmq.client.consumer.PullResult;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.message.MessageQueue;
 
+/**
+ *
+ */
 public class PullConsumer {
     private static final Map<MessageQueue, Long> OFFSE_TABLE = new HashMap<MessageQueue, Long>();
 
@@ -39,7 +43,7 @@ public class PullConsumer {
             while (true) {
                 try {
                     PullResult pullResult =
-                        consumer.pullBlockIfNotFound(mq, null, getMessageQueueOffset(mq), 32);
+                            consumer.pullBlockIfNotFound(mq, null, getMessageQueueOffset(mq), 32);
                     System.out.printf("%s%n", pullResult);
                     putMessageQueueOffset(mq, pullResult.getNextBeginOffset());
                     switch (pullResult.getPullStatus()) {
@@ -65,8 +69,9 @@ public class PullConsumer {
 
     private static long getMessageQueueOffset(MessageQueue mq) {
         Long offset = OFFSE_TABLE.get(mq);
-        if (offset != null)
+        if (offset != null) {
             return offset;
+        }
 
         return 0;
     }

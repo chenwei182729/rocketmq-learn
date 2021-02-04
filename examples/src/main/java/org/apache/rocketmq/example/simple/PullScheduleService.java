@@ -40,8 +40,9 @@ public class PullScheduleService {
                 try {
 
                     long offset = consumer.fetchConsumeOffset(mq, false);
-                    if (offset < 0)
+                    if (offset < 0) {
                         offset = 0;
+                    }
 
                     PullResult pullResult = consumer.pull(mq, "*", offset, 32);
                     System.out.printf("%s%n", offset + "\t" + mq + "\t" + pullResult);
